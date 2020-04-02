@@ -1,7 +1,5 @@
 package model;
 
-
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
 
@@ -16,15 +14,9 @@ public class Logic {
 	private PerroNombre perroNombre;
 	private PerroRaza perroRaza;
 	private PerroEdad perroEdad;
-	private String[] downloadTxt;
-	
+	private int diferentDownload;
 
 	
-	
-	
-
-
-
 
 	public Logic(PApplet app) {
 		this.app = app;
@@ -34,26 +26,10 @@ public class Logic {
 		perroEdad = new PerroEdad();
 		unoTxt = app.loadStrings("./data/imports/uno.txt");
 		dosTxt = app.loadStrings("./data/imports/dos.txt");
-		
-		
-		
-	
-//		
-//		 Object[] objectArray = listPerro.toArray();
-//		
-//		 
-//		 
-//		  downloadTxt = new String[objectArray.length];
-//	      for(int i =0; i < objectArray.length; i++) {
-//
-//	         downloadTxt[i] = (String) objectArray[i];
-//	      }
-//	      System.out.println("Contents of the array: \n"+Arrays.toString(downloadTxt));
-//		
-		
+		diferentDownload=0;
 		
 		listaPerros();
-		listString();
+	
 		
 		
 		
@@ -73,22 +49,17 @@ public class Logic {
 				textSplit1=unoTxt[j].split(",");
 				int id= Integer.parseInt(textSplit1[0]);
 				int edad= Integer.parseInt(textSplit1[2]);
+				String nombre = textSplit1[1];
+				String raza = textSplit2[1];
+				String fechaNacimiento = textSplit2[2];
 				
 
 				if(textSplit2[0].trim().equals(textSplit1[0].trim())) {
-					tabla(id,textSplit1[1],textSplit2[1],edad,textSplit2[2]);
+					tabla(id,nombre,raza,edad,fechaNacimiento);
 					break;
 				}
-
 			}	
-
-
-
 		}
-
-//		for(Perro perro : listPerro) {
-//		
-//		}
 
 	}
 
@@ -99,38 +70,63 @@ public class Logic {
 		
 		listPerro.add(new Perro(iD,nombre,raza,edad,fecha,100));
 		
-		nombre=nombre.toLowerCase();
-		raza=raza.toLowerCase();
-//		downloadTxt=listPerro.toArray((new String[0]));
 
 		
 		
 //		listPerro.add(new Perro(textSplit1[0],textSplit1[1],textSplit2[1],textSplit2[2],100,app));
 	}
 	
-	private void listString() {
-	
 
-		
-//		for(Perro perro : listPerro) {
-//			for(int j = 0; j < downloadTxt.length; j++)
-//			downloadTxt[j]=perro.getNombre();
-//			
-//		}
 
 	
-	}
-	
+
 	
 	public void downloadString() {
 		
+		String[] downloadTxt;
+		downloadTxt = new String [listPerro.size()];
+		
+		
+		for (int i = 0; i < listPerro.size(); i++) {
+
+			String id = "id:" + listPerro.get(i).getId();
+			String nombre = " nombre:" + listPerro.get(i).getNombre().toLowerCase();
+			String edad = " edad:" + listPerro.get(i).getEdad();
+			String raza = " raza:" + listPerro.get(i).getRaza().toLowerCase();
+			String fechaN = " fecha de Nacimiento:" + listPerro.get(i).getFecha();
+
+			downloadTxt[i] = id + nombre + edad + raza + fechaN;
+			 System.out.println(downloadTxt[i]);
+		}
+		
 	
+		switch (diferentDownload) {
 		
-		if(app.mouseX>450&&app.mouseY>500&&app.mouseX<450+150&&app.mouseY<550) {
+		
+		
+		case 1:
+			if(app.mouseX>450&&app.mouseY>500&&app.mouseX<450+150&&app.mouseY<550) 
+			app.saveStrings("./data/exports/id.txt",downloadTxt);
+			System.out.println("guarde");
+			break;
+
+		case 2:
+			if(app.mouseX>450&&app.mouseY>500&&app.mouseX<450+150&&app.mouseY<550) 
+			app.saveStrings("./data/exports/nombre.txt",downloadTxt);
+			break;
+
+		case 3:
+			if(app.mouseX>450&&app.mouseY>500&&app.mouseX<450+150&&app.mouseY<550) 
+			app.saveStrings("./data/exports/raza.txt",downloadTxt);
+			break;
+
+		case 4:
+			if(app.mouseX>450&&app.mouseY>500&&app.mouseX<450+150&&app.mouseY<550) 
+				app.saveStrings("./data/exports/edad.txt",downloadTxt);
+				break;
+
+
 			
-  		app.saveStrings("./data/exports/new.txt",textSplit1);
-		
-			return;
 		}
 		
 	
@@ -142,20 +138,22 @@ public class Logic {
 	public void addSortList() {
 		if(app.mouseX>100&&app.mouseY>400&&app.mouseX<100+150&&app.mouseY<450) {
 			Collections.sort(listPerro);
-			
+			diferentDownload=1;
 		}
-		
 
 		if(app.mouseX>350&&app.mouseY>400&&app.mouseX<350+150&&app.mouseY<450) {
 			Collections.sort(listPerro,perroNombre);	
+			diferentDownload=2;
 		}
 		
 		if(app.mouseX>600&&app.mouseY>400&&app.mouseX<600+150&&app.mouseY<450) {
 			Collections.sort(listPerro,perroRaza);
+			diferentDownload=3;
 		}
 		
 		if(app.mouseX>850&&app.mouseY>400&&app.mouseX<850+150&&app.mouseY<450) {
 			Collections.sort(listPerro,perroEdad);	
+			diferentDownload=4;
 		}
 		
 		
