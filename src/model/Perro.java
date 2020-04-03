@@ -7,8 +7,8 @@ public class Perro implements Comparable <Perro>{
 	private int posX,posY;
 	private String nombre,raza,fecha; 
 	private int id,edad;
+	private int ancho,alto;
 	
-//	pa4.setPalabra(pa4.getPalabra().toUpperCase());
 
 	Perro(int id,String nombre,String raza,int edad,String fecha,int posY) {
 		this.nombre=nombre;
@@ -17,6 +17,8 @@ public class Perro implements Comparable <Perro>{
 		this.edad=edad;
 		this.fecha=fecha;
 		this.posY=posY;	
+		this.ancho=40;
+		this.alto=40;
 		
 	}
 
@@ -30,19 +32,20 @@ public class Perro implements Comparable <Perro>{
 		app.fill(0);
 		app.noFill();
 		app.stroke(0);
-		app.rect(posX-15,posY-10,100,100);
+		app.rect(posX,posY,100,100);
 		app.textSize(10);
 		app.text(fecha,posX, posY+80);
 		app.text(edad,posX, posY+65);
-		app.text(id,posX+5,posY+10);
+		app.text(id,posX,posY+10);
 		app.text(nombre,posX,posY+30);
 		app.text(raza,posX,posY+50);
+		app.fill(255,87,92);
+		app.ellipse(posX, posY+150, ancho, alto);
 		
-	
+
 		
 		
 	}
-	
 	
 	
 	public int compareTo(Perro id) {
@@ -50,7 +53,11 @@ public class Perro implements Comparable <Perro>{
 
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Perro [nombre=" + nombre + ", raza=" + raza
+				+ ", id=" + id + ", edad=" + edad + "]";
+	}
 	
 	
 
@@ -110,11 +117,10 @@ public class Perro implements Comparable <Perro>{
 		this.fecha = fecha;
 	}
 
-	@Override
-	public String toString() {
-		return "Perro [nombre=" + nombre + ", raza=" + raza
-				+ ", id=" + id + ", edad=" + edad + "]";
-	}
+	
+
+
+	
 
 	
 

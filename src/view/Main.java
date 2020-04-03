@@ -27,7 +27,16 @@ public class Main extends PApplet {
 		
 		paintButtons();
 		for (int i = 0; i < controller.listPerro().size(); i++) {
+			
+			
+//			int posX = controller.listPerro().get(i).getPosX();
+//			int posY = controller.listPerro().get(i).getPosY();
+			
+		
 			controller.listPerro().get(i).draw((i*(100))+70,this);
+			
+//			controller.listPerro().get(i).draw((i*(100))+70,this);
+			
 		}
 		
 	
@@ -51,6 +60,7 @@ public class Main extends PApplet {
 		text("Raza",670,420);
 		text("Edad",920,420);
 		text("Descargar Nuevo TXT",470,530);
+	
 	}
 	
 	
@@ -58,8 +68,10 @@ public class Main extends PApplet {
 		
 		
 		controller.mouseClick();
+		
+		
 
-		
-		
 	}
 }
+		
+	

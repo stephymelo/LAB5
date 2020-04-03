@@ -1,0 +1,10 @@
+id:8 nombre:noggy edad:5 raza:bulldog frances fecha de Nacimiento:6-1-2014
+id:4 nombre:apolo edad:6 raza:lobero irlandes fecha de Nacimiento:10-7-2013
+id:3 nombre:binga edad:20 raza:doberman fecha de Nacimiento:25-2-1999
+id:10 nombre:emma edad:8 raza:galgo fecha de Nacimiento:21-2-2011
+id:1 nombre:kia edad:12 raza:pastor australiano fecha de Nacimiento:25-4-2002
+id:7 nombre:angel edad:15 raza:beagle fecha de Nacimiento:10-10-2014
+id:2 nombre:peter edad:5 raza:gran danes fecha de Nacimiento:12-5-2014
+id:5 nombre:rosy edad:2 raza:labrador fecha de Nacimiento:10-11-2017
+id:6 nombre:white edad:9 raza:pitbull fecha de Nacimiento:1-12-2010
+id:9 nombre:zorro edad:1 raza:borzoi fecha de Nacimiento:20-6-2018

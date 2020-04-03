@@ -15,6 +15,7 @@ public class Logic {
 	private PerroRaza perroRaza;
 	private PerroEdad perroEdad;
 	private int diferentDownload;
+	private boolean click;
 
 	
 
@@ -28,10 +29,12 @@ public class Logic {
 		dosTxt = app.loadStrings("./data/imports/dos.txt");
 		diferentDownload=0;
 		
-		listaPerros();
 	
+		 
+		listaPerros();
+
 		
-		
+		 
 		
 	}
 
@@ -47,6 +50,7 @@ public class Logic {
 
 			for (int j = 0; j < unoTxt.length; j++) {
 				textSplit1=unoTxt[j].split(",");
+				
 				int id= Integer.parseInt(textSplit1[0]);
 				int edad= Integer.parseInt(textSplit1[2]);
 				String nombre = textSplit1[1];
@@ -77,7 +81,32 @@ public class Logic {
 	}
 	
 
+	
+	public void swapping() {
 
+//		
+//		Collections.swap(listPerro, a, b);
+//		
+
+		
+		
+		
+		for (int i = 0; i < listPerro.size(); i++) {
+			
+			Perro perro = listPerro.get(i);
+			
+			
+			if(app.mouseX>perro.getPosX()&&app.mouseY>perro.getPosY()&&app.mouseX<perro.getPosX()+100&&app.mouseY<perro.getPosY()+100) {
+//				
+				System.out.println(listPerro.indexOf(perro)+"indice");
+				
+				
+			}
+	
+		}
+		
+		
+	}
 	
 
 	
@@ -96,7 +125,8 @@ public class Logic {
 			String fechaN = " fecha de Nacimiento:" + listPerro.get(i).getFecha();
 
 			downloadTxt[i] = id + nombre + edad + raza + fechaN;
-			 System.out.println(downloadTxt[i]);
+			
+			
 		}
 		
 	
@@ -107,7 +137,6 @@ public class Logic {
 		case 1:
 			if(app.mouseX>450&&app.mouseY>500&&app.mouseX<450+150&&app.mouseY<550) 
 			app.saveStrings("./data/exports/id.txt",downloadTxt);
-			System.out.println("guarde");
 			break;
 
 		case 2:
@@ -139,6 +168,7 @@ public class Logic {
 		if(app.mouseX>100&&app.mouseY>400&&app.mouseX<100+150&&app.mouseY<450) {
 			Collections.sort(listPerro);
 			diferentDownload=1;
+			
 		}
 
 		if(app.mouseX>350&&app.mouseY>400&&app.mouseX<350+150&&app.mouseY<450) {

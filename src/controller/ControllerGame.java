@@ -16,22 +16,18 @@ public class ControllerGame {
 		logic = new Logic(app);
 	}
 	
-//	public void listaPerros(){
-//	   logic.listaPerros();		
-//	}
-	
+
 	public LinkedList<Perro> listPerro() {
 		return logic.getListPerro();
 	} 
 	
 
-//	public void addElementList(){
-//		logic.tabla(iD,nombre,raza,edad);		
-//	}
-//	
+
 
 	public void mouseClick() {
 		logic.addSortList();
+		
+		logic.swapping();
 		logic.downloadString();
 		
 	}
