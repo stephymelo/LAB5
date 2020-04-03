@@ -1,0 +1,10 @@
+5,Rosy,2
+2,Peter,5
+4,Apolo,6
+3,Binga,20
+7,Angel,15
+8,Noggy,5
+10,Emma,8
+1,Kia,12
+6,White,9
+9,Zorro,1
